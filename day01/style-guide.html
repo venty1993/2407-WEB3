@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .선택자 {
+            속성1: 값;
+            속성2: 값;
+        }
+
+        #선택자 {
+            속성1: 값;
+        }
+
+        .background-color {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+                <div class="background-color">
+                    이게 되냐?
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 공통 가이드
+            // 들여쓰기
+            // 줄 끝에 세미콜론(;) 붙이기 (js는 없어도 실행은됨)
+            // 주석은 적절하게 사용
+        
+        // 자바스크립트 가이드
+            // 가독성을 위해 수식 사이에 띄어쓰기 넣기
+                // ex) 1+100+10+1  ->   1 + 100 + 10 + 1
+            // camelCase 작명방식 사용하기
+                // hellomynameisminsu (띄어쓰기 없으면 구분 어려움)
+                // hello my name is minsu (js에서는 하나의 묶음으로 인식하지않음)
+                // helloMyNameIsMinsu (가독성 좋음!)
+
+                // 3번째 예처럼 띄어쓰기 다음에 오는 문자를 대문자로 써주는것이
+                // camelCase 방식이다.
+
+            // 첫글자는 숫자 사용 불가능
+            // 첫글자가 소문자인지 대문자인지에 따라 의미가 달라짐
+                // 웹퍼블 수업중에는 소문자만 사용하게될것
+            // _, &등의 특수문자 사용 가능하지만, 웹퍼블 과정에서는 안씁니다
+            // 식별자는 이미 사용된것으로는 사용 불가
+
+        var alert
+        var 상자2
+
+        alert = '진민승'
+        상자2 = '김유리'
+    </script>
+</body>
+</html>
