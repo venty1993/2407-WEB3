@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://img1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/5xeg/image/Z1Iyj3hBYg1SfCZGr5RX8R-weSg.png" alt="">
+    <script>
+        // operator : 연산자
+        // 연산자 : 연산하는 문자
+
+        // 산술 연산자
+            // + : 더하기
+            // - : 빼기
+            // * : 곱하기
+            // / : 나누기
+
+        // 개발용 산술연산자
+            // % : 나머지 연산자
+                // 10 % 3 을 계산하면 1이 남는다
+                // 5 % 2를 계산하면 1이 남는다
+                // 15 % 10을 계산하면 5가 남는다 
+            // ++, -- : 증감 연산자
+                // 단항연산자 : 항이 하나인 연산자 (예, 나이++)
+
+        // 대입 연산자
+            // = : 오른쪽 항에 있는 값을 왼쪽항에 대입
+                // 나이 = 32
+
+        var 나이;
+        나이 = 30;
+
+        나이++;
+
+        console.log(나이);
+
+        // 비교연산자 : 두 항을 비교해, 질문이 참이면 True 거짓이면 False
+            // A > B : A가 B를 초과하는지 "질문"
+            // A < B : A가 B 미만인지 "질문"
+            // A >= B : A가 B 이상인지 "질문"
+            // A <= B : A가 B 이하인지 "질문"
+            // A == B : 같은지 비교하는 연산자 (자료형을 고려하지 않음)
+                // 개발에서는 자료형이 굉장히 중요하다.
+                // 문자와 숫자를 비교했을때 원래는 당연히 다른거라고 나와야 한다.
+                // 유명한 일화 : 0 == '0', 0 == [] 는 true지만 '0' == []는 false이다.
+
+            // A === B : 같은지 비교하는 연산자 (자료형까지 포함해 비교)
+                // 0 === '0' -> false
+
+            // A != B, A!== B : 다른지 비교하는 연산자(같으면 false 다르면 true)
+
+        // 연결 연산자
+            // + : 항이 문자열일때 두 문자열을 연결해주는 연산자
+                // '안녕하세요' + '반갑습니다' -> '안녕하세요반갑습니다'
+
+            console.log('나이:' + 나이 + '세')
+            console.log(`나이:${나이}세`)
+
+        // 논리 연산자
+            // && : AND연산자, 양쪽 항의 값이 true일때 true, 그렇지않으면 false
+            // || : OR연산자, 양쪽 항의 값중 하나라도 true면 true 그렇지않으면 false
+            // ! : NOT연산자(단항)
+
+            // Ex. 경력10년 이상이면서 남자이거나, 관련 학위 소지자
+            // 남자 true 여자 false
+            // 학위소지여부 true false
+
+            var 경력;
+            var 성별; //남자 true, 여자 false
+            var 학위;
+
+            경력 = 5;
+            성별 = true;
+            학위 = false;
+        
+            var 지원가능여부 = (경력 >= 10 && 성별) || 학위;//사실 ===true는 필요없다.
+            console.log(지원가능여부);
+
+            // 삼항연산자 : 조건문
+                // 조건 ? 참일때값 : 거짓일때값;
+                console.log(지원가능여부?'지원 가능 합니다':'지원 불가 합니다');
+                // 엑셀 if문과 모양이 똑같다!!
+
+            // if문 스포일러
+
+            if(지원가능여부) {
+                console.log('지원가능합니다');
+            }else {
+                console.log('지원불가합니다');
+            }
+
+
+        </script>
+</body>
+</html>
