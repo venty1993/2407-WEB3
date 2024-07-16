@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 연도가 주어졌을때 윤년인지 아닌지 판단하는 프로그램을 작성 해봅시다!
+        // 윤년은 연도가 4의 배수이면서, 100의 배수가 아닐때, 혹은 400의 배수일때 입니다.
+
+        // (4년 -> 4의 배수 이고, 100의 배수가 아니므로 윤년)
+        // (100년 -> 4의 배수이지만 100의 배수이므로 윤년이 아니다.)
+        // (2000년 -> 100의 배수이지만, 400의 배수이기때문에 윤년이다. )
+
+        // 조건문을 사용해 콘솔에 윤년인지 아닌지를 나타내주세요
+        // (ex. '2024년은 윤년입니다.')
+
+        var 년도 = 2000;
+
+        // if(년도 % 400 ===0 ) {
+        //     console.log('윤년입니다')
+        // }else if(년도 % 100 === 0 ){
+        //     console.log('윤년이 아닙니다')
+        // }else if(년도 % 4 === 0) {
+        //     console.log('윤년입니다')
+        // }else {
+        //     console.log('윤년이 아닙니다')
+        // }
+
+        if(년도 % 4 === 0 && 년도 % 100 !== 0 || 년도 % 400 ===0){
+            console.log('윤년입니다')
+        }else {
+            console.log('윤년이 아닙니다')
+        }
+
+        
+        
+        </script>
+</body>
+</html>
