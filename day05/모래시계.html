@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 5줄일때 
+        // 0   2-i = |2|    => 2-2
+        // 1   2-i = |1|    => 2-1
+        // 2   2-i = |0|    => 2-0
+        // 1   2-i = |-1|   => 2-1
+        // 0   2-i = |-2|   => 2-2
+        // Math.abs(숫자) : 절대값
+        
+        // Math.abs(i), i가 2일때 -> 2, i가 -2일때 -> 2
+
+        // 모래시계는 홀수라인으로만 만들 수 있습니다.
+        const line = 55;
+        const harf =(line-1)/2;
+
+        for(let i = 0 ; i < line ; i ++) {
+            // 공백
+            for(let j = 0 ; j < harf-Math.abs(harf-i) ; j ++) {
+                document.write('○')
+            }
+            // 별
+            for(let j = 0 ; j < line - (harf-Math.abs(harf-i))*2 ; j ++) {
+                document.write('●')
+            }
+            document.write('<br>')
+        }
+    </script>
+</body>
+</html>

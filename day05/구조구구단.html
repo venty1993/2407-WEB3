@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .gugudan-container {
+            display: flex;
+            width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+        }
+
+        .dan-container {
+            padding: 16px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <script>
+    document.write(`<h1>구구단</h1>`)
+    document.write(`<div class="gugudan-container">`)
+
+    for(let gugu = 2 ; gugu <= 9 ; gugu++){
+        document.write(`<div class='dan-container'>`)
+        document.write(`<h2>${gugu}단</h2>`)
+        for(let dan = 1 ; dan <= 9 ; dan ++ ) {
+            document.write(`<p>${gugu} x ${dan} = ${gugu*dan}</p>`)
+        }
+        document.write('</div>')
+    }
+    document.write('</div>')
+    </script>
+
+</body>
+</html>
