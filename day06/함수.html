@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function star(){
+            document.write('&nbsp;ㅁ&nbsp;')
+        }
+        function enter(){
+            document.write('<br>')
+        }
+        function space(){
+            document.write('&nbsp;&nbsp;&nbsp;')
+        }
+
+
+        for(let j = 0 ; j < 5 ; j++) {
+            for(let i = 0 ; i <= j ; i ++) {
+                star();
+            }
+            enter();
+        }
+
+        enter();
+
+        for(let j = 0 ; j < 5 ; j++) {
+            for(let i = 0 ; i < 5-j ; i ++) {
+                star();
+            }
+            enter();
+        }
+
+        enter();
+
+        for(let j = 0 ; j < 5 ; j++) {
+            for(let i = 0 ; i < j ; i ++) {
+                space();
+            }
+            for(let i = 0 ; i < 5-j ; i ++) {
+                star();
+            }
+            enter();
+        }
+
+        enter();
+
+
+        for(let i = 0 ; i < 5 ; i ++) {
+            for(let j = 0 ; j < 4-i; j ++) {
+                space();
+            }
+            for(let j = 0 ; j < i + 1 ; j ++) {
+                star();
+            }
+            document.write('(엔터)')
+        }
+
+
+        // 함수는 매개변수와 리턴을 선택적으로 사용할수있다
+        // 매개변수가 있는 예시
+        // 입력한 값에 3을 더해 콘솔에 출력하는 함수
+
+        // 함수 선언시 괄호 안에 들어가는것이 '매개변수'
+        // 함수를 사용할때 어떤 값을 외부로부터 받아 올것인지 미리 정해놓는 곳
+        // 설명서와 비슷한 느낌으로 생각하셔도 무방합니다.
+        function add3AndExportConsole(숫자넣어라,여러개,마음대로,넣고싶은만큼,가능){
+            console.log(숫자넣어라+3)
+        }
+        
+        add3AndExportConsole(33)
+
+        // console.log('출력값')
+        // alert('메세지')
+
+
+        function add3(숫자넣어라){
+            return 숫자넣어라 + 3
+        }
+
+        const 계산값 = add3(100);
+    
+        function 출생년도계산기(나이){
+            const date = new Date();
+            const 현재년도 = date.getFullYear();
+
+            return 현재년도 - 나이 + 1;
+        }
+
+        const 강사출생년도 = 출생년도계산기(32);
+        const 민승출생년도 = 출생년도계산기(28);
+        const 민수출생년도 = 출생년도계산기(55);
+        const 아이유출생년도 = 출생년도계산기(32);
+
+        console.log(강사출생년도)
+        console.log(민승출생년도)
+        console.log(민수출생년도)
+        console.log(아이유출생년도)
+
+
+        // 매개변수도 없고, 리턴도 없는 함수
+
+        function star(){
+            document.write('&nbsp;ㅁ&nbsp;')
+        }
+
+
+        // 옵셔널 패러미터
+        function 인사(이름,나이,국적 = '대한민국') {
+            console.log(`안녕 난 ${국적}에서 온 ${이름}이고, 나이는 ${나이}살이야`);
+        }
+
+        // 옵셔널 패러미터는 항상 매개변수 마지막에 작성해줘야합니다.
+        인사('이솔',32)
+    </script>
+</body>
+</html>
