@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const alpha = ['a','b','c','d','e','f'];
+
+        // console.log(alpha[0])
+        // console.log(alpha[1])
+        // console.log(alpha[2])
+        // console.log(alpha[3])
+        // console.log(alpha[4])
+
+        // for(i가 0부터 4까지 1씩 늘어나면서 반복){
+        //     console.log(alpha[i]);
+        // }
+       
+       
+        // for(let i = 0 ; i < 5 ; i++){
+        //     console.log(alpha[i]);
+        // }
+
+        for(let i = 0 ; i < alpha.length ; i ++) {
+            console.log(alpha[i]);
+        }
+
+
+
+        const arr = [];
+
+        for(let i = 1; i <= 100 ; i++) {
+            arr.push(i)
+        }
+
+        console.log(arr);
+
+        // arr 안에 짝수가 몇개 있는지 궁굼합니다.
+        // console.log()에 짝수가 몇개인지 출력 해주세요
+
+        let count = 0 ;
+        
+        for(let i = 0 ; i < arr.length ; i ++) {
+            if(arr[i] % 2 === 0){
+                count++;
+            }
+        }
+        console.log(count)
+
+
+        const 짝수 = [];
+
+        for(let i = 0 ; i < arr.length ; i ++) {
+            if(arr[i] % 2 === 0){
+                짝수.push(arr[i]);
+            }
+        }
+        console.log(짝수.length)
+
+
+        // 추후에 시도해볼만한 방법
+        // console.log('다른방법',arr.filter((number)=> number % 2 === 0).length)
+
+
+        const arr2 = [ 1 , 4 , 2 , 2 , 4 , 3 , 2 , 4 ]
+
+        // 배열 안에 3 이상인 값은 몇개인가?
+
+        let count2 = 0;
+
+        for(let i = 0 ; i < arr2.length ; i ++) {
+            if(arr2[i]>=3) {
+                count2 ++
+            }
+        }
+        console.log(count2)
+    </script>
+</body>
+</html>
