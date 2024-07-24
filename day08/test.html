@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function 유효성검사(범위,문구,유효성문구) {
+            const inputNumber = parseInt(prompt(문구,유효성문구));
+            if(typeof inputNumber === 'number' && inputNumber >=1 && inputNumber <= 범위){
+                return inputNumber
+            }
+            alert('잘못된 값을 입력하셨습니다.')
+            유효성검사(범위,문구,유효성문구);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function 유효성검사(범위,문구,유효성문구) {
+            const inputNumber = parseInt(prompt(문구,유효성문구));
+            if(typeof inputNumber === 'number' && inputNumber >=1 && inputNumber <= 범위){
+                return inputNumber
+            }
+            alert('잘못된 값을 입력하셨습니다.')
+            유효성검사(범위,문구,유효성문구);
+        }
+        let 범위;
+        let 기회;
+
+        alert(`UP & DOWN 게임!`);
+        const level = 유효성검사(4,'난이도를 설정해주세요', '1 : 이지 2: 노말 3: 하드 4: 익스트림')
+
+        if(level === 1 ){
+            범위 = 60;
+            기회 = 6;
+        }else if (level === 2) {
+            범위 = 100;
+            기회 = 5;
+        }else if (level === 3 ){
+            범위 = 120;
+            기회 = 4
+        }else {
+            범위 = 1000;
+            기회 = 2
+        }
+
+        const 정답 = parseInt(Math.random()*범위)+1;
+
+
+    
+        for(let i = 0 ; i < 기회 ; i ++){
+            
+            alert(`남은 기회는 ${기회-i}번 입니다.`)
+            const 답변 = 유효성검사(범위,'정답을 입력해 주세요', `1부터 ${범위}사이의 값을 입력해주세요`)
+
+            if(답변 === 정답) {
+                alert('정답입니다')
+                break;   
+            }else if(i === 기회-1){
+                alert('기회가 모두 소진되었습니다')
+                alert(`정답은 ${정답}였습니다`)
+            }else if(답변 > 정답) {
+                alert('down');
+            }
+            else {
+                alert('up');
+            }
+        }
+        
+
+        // 정답일때
+        // 오답일때
+
+    </script>
+</body>
+</html>
