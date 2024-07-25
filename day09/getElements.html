@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box-class" id="box-id">
+        안녕하세요
+        <p class="my-p-tag">1</p>
+        <p class="my-p-tag">2</p>
+        <p class="my-p-tag">3</p>
+    </div>
+
+    <div class="box-class2" id="box-id2">
+        안녕하세요
+        <p class="my-p-tag">1</p>
+        <p class="my-p-tag">2</p>
+        <p class="my-p-tag">3</p>
+    </div>
+
+    <script>
+        // html 요소를 가져오는 방법
+        // 1. 태그 ,2. 클래스, 3. 아이디
+        // document.getElementBy~~~~ 형태로 작성한다.
+
+        const idBox = document.getElementById('box-id');
+        const classBoxs = document.getElementsByClassName('box-class')
+
+        console.log(idBox)
+        console.log(classBoxs);
+
+        idBox.classList.add('new')
+        classBoxs[0].classList.add('old')
+
+        // id는 정확히 개체를 특정하기때문에 그냥 이용 가능하지만
+        // class, tag 로 가져왔을때는 collection(보따리)형태로 가져오기때문에
+        // 내부 요소를 사용하려면 반드시 인덱스를 작성 해줘야한다.
+
+        const 쿼리셀렉터 = document.querySelector('.box-class > .my-p-tag:nth-child(2)')
+        console.log(쿼리셀렉터)
+
+        const 쿼리셀렉터올 = document.querySelectorAll('.box-class > .my-p-tag')
+        console.log(쿼리셀렉터올)
+        // css선택자를 이용해 요소를 가져올수 있다.
+        // 가장 먼저 만나는 하나의 요소만을 가져온다
+
+
+
+        const myPTags = document.getElementsByClassName('my-p-tag')
+        console.log(myPTags)
+
+        const 아이디박스안의피태그 = idBox.getElementsByClassName('my-p-tag')
+        console.log(아이디박스안의피태그)
+    </script>
+</body>
+</html>

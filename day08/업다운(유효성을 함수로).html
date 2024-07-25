@@ -7,18 +7,10 @@
 </head>
 <body>
     <script>
-        function 유효성검사(범위,문구,유효성문구) {
-            const inputNumber = parseInt(prompt(문구,유효성문구));
-            if(typeof inputNumber === 'number' && inputNumber >=1 && inputNumber <= 범위){
-                return inputNumber
-            }
-            alert('잘못된 값을 입력하셨습니다.')
-            유효성검사(범위,문구,유효성문구);
-        }
-        let 범위;
-        let 기회;
-
         alert(`UP & DOWN 게임!`);
+
+        let 범위, 기회;
+        
         const level = 유효성검사(4,'난이도를 설정해주세요', '1 : 이지 2: 노말 3: 하드 4: 익스트림')
 
         if(level === 1 ){
@@ -34,11 +26,8 @@
             범위 = 1000;
             기회 = 2
         }
-
         const 정답 = parseInt(Math.random()*범위)+1;
 
-
-    
         for(let i = 0 ; i < 기회 ; i ++){
             
             alert(`남은 기회는 ${기회-i}번 입니다.`)
@@ -58,10 +47,14 @@
             }
         }
         
-
-        // 정답일때
-        // 오답일때
-
+        function 유효성검사(범위,문구,유효성문구) {
+            const inputNumber = parseInt(prompt(문구,유효성문구));
+            if(typeof inputNumber === 'number' && inputNumber >=1 && inputNumber <= 범위){
+                return inputNumber
+            }
+            alert('잘못된 값을 입력하셨습니다.')
+            유효성검사(범위,문구,유효성문구);
+        }
     </script>
 </body>
 </html>
