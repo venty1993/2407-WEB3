@@ -25,9 +25,9 @@
       const box = document.getElementsByClassName('box');
       const button = document.querySelector('.switch');
 
-      button.addEventListener('click',()=>{
-          box[0].classList.add('active')
-      })
+    //   button.addEventListener('click',()=>{
+    //       box[0].classList.add('active')
+    //   })
 
       // box[0].classList.contains('active') box[0]이 active라는 클래스를 가졌는지
       // 가졌으면 true 안가졌으면 false
@@ -36,6 +36,20 @@
       // 인터렉션을 만들어봅시다! <- 숙제
 
       // +추가 : classList.remove('클래스이름') 을 이용해 클래스를 제거할 수 있습니다
+      
+      button.addEventListener('click',()=>{
+        const isActive = box[0].classList.contains('active');
+        // active가 들어있을때 클릭했다면
+
+        if(isActive){
+            box[0].classList.remove('active')
+        }else {
+            box[0].classList.add('active')
+        }
+        // box[0].classList.toggle('active')
+
+
+      })
     </script>
   </body>
 </html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .rect {
+            width: 300px;
+            height: 100px;
+            border: 1px solid #222;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+    <div class="color-box">    
+        <div class="rect"></div>
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>
+
+
+
+    <script>
+        const colorBox = document.getElementsByClassName('color-box');
+        
+        for(let i = 0 ; i < colorBox.length ; i ++) {
+            const rect = colorBox[i].getElementsByClassName('rect');
+            const range = colorBox[i].querySelector('input');
+
+            console.log(rect);
+
+            // range의 값이 얼마인가? 
+            range.addEventListener('change',() => {
+                // range.value가 100일때 0 0일때 100
+
+                rect[0].style.backgroundColor = `hsl(0, 0%, ${100 - range.value}%)`
+            })
+            
+            // 개체의 스타일을 지정하는 방법 : 개체.style.속성이름 = '문자열로 속성지정'
+            // rect.addEventListener('click', () => {
+            //     rect.style.backgroundColor = 'red'
+            // })
+            
+        }
+    </script>
+</body>
+</html>
