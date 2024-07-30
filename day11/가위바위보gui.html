@@ -4,40 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .container {
+            width: 600px;
+            height: 500px;
+            border: 1px solid #222;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .board {
+            width: 120px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: #aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .board:active {
+            background-color: #555;
+        }
+
+        .board-container {
+            display: flex;
+            gap: 24px;
+        }
+    </style>
 </head>
 <body>
-    <!-- 
-        0: 가위
-        1: 바위
-        2: 보
+    <h1>가위바위보</h1>
+    <div class="container">
+        <h2 class="winning-streak">0연승</h2>
+        <div class="com">
+            <h3>컴퓨터</h3>
+            <div class="board"></div>
+        </div>
+        <div class="user">
+            <h3>유저</h3>
+            <div class="board-container">
+                <div class="board">가위</div>
+                <div class="board">바위</div>
+                <div class="board">보</div>
+            </div>
+        </div>
 
-        와 같은 형태로 가위바위보를 표현 할 수 있다.
+    </div>
+    <!-- 가위바위보 + GUI -->
 
-        컴퓨터와 가위바위보를 해 승 / 무 / 패를 출력해주는 프로그램을 작성해보자
-        입출력은 alert과 prompt를 이용한다.
+    <!-- 승리조건 :  가위바위보를 3번 연속 이겼을때 -->
+    <!-- 세부규칙 :  무승부는 연승에 영향을 주지 않는다.
+                    패배시 연승횟수는 0부터 다시 시작
+                    횟수 제한은 없으며 승리할때까지 계속해서 반복한다.
+        -->
 
-        컴퓨터 = 랜덤 0 ~ 2;
-
-        내가 이기는 경우
-         -> (내가 가위면서 상대가 보)
-            이거나
-            (내가 바위 이면서 상대가 가위)
-            이거나
-            (내가 보면서 상대가 바위)
-
-        내가 지는경우
-         -> (내가 가위이면서 상대가 바위)
-            이거나
-            (내가 바위 이면서 상대가 보)
-            이거나
-            (내가 보면서 상대가 가위)
-
-        무승부인경우
-         -> 나와 상대가 같을때
+    <script>
         
-     -->
 
-
-     </script>
+    </script>
 </body>
 </html>

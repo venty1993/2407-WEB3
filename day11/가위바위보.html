@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const computer = parseInt(Math.random()*3);
+
+        const user = parseInt(prompt('가위바위보게임', '0 : 가위, 1 : 바위 ,2 : 보'))
+
+        if(computer === user) {
+            alert('무승부!')
+        }else if(user === 0 && computer === 2 || user === 1 && computer === 0 || user ===2 && computer === 1){
+            alert('승리!')
+        }else {
+            alert('패배..')
+        }
+
+        console.log(user,computer)
+    </script>
+</body>
+</html>
