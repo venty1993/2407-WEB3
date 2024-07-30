@@ -43,6 +43,10 @@
 <body>
     <h1>가위바위보</h1>
     <div class="container">
+        <h3>
+            <span>현재레벨 : </span>
+            <span class="now-level"></span>
+        </h3>
         <h2 class="winning-streak">0연승</h2>
         <div class="com">
             <h3>컴퓨터</h3>
@@ -73,18 +77,29 @@
         const boardContainer = document.querySelector('.board-container');
         // const userBoards = document.querySelectorAll('.board-container > .board')
 
+        const nowLevel = document.querySelector('.now-level');
+
+
         let 연승스택 = 0 ;
+        let level = 1;
+        const levelDesign = [3,5,7,9];
+
+        nowLevel.innerText = level
 
         const table = ['가위','바위','보']
 
         for(let i = 0 ; i < boardContainer.childElementCount; i ++ ){
-
-            
             boardContainer.children[i].addEventListener('click', ()=> {
                 const user = i;
                 const computer = parseInt(Math.random()*3);
 
                 comBoard.innerText = table[computer]
+
+                for(let i = 0 ; i < boardContainer.childElementCount ; i ++) {
+                    boardContainer.children[i].style.backgroundColor = '#aaa'
+                }
+               
+                boardContainer.children[i].style.backgroundColor = `yellow`
 
                 if(user === computer) {
                     winningStreak.innerText = '무승부'
@@ -99,10 +114,15 @@
                     winningStreak.innerText = '패배'
                 }
                 
-                if(연승스택 === 3) {
+                if(연승스택 === levelDesign[level-1]) {
+                    연승스택 = 0;
                     winningStreak.innerText = '게임 클리어!'
+                    level++;
+                    nowLevel.innerText = level
+
                 }else {
-                    winningStreak.innerText =  winningStreak.innerText + ` ${연승스택}연승`
+                    // winningStreak.innerText   =  winningStreak.innerText + ` ${연승스택}연승`
+                    winningStreak.innerText += ` ${연승스택}연승`
                 }
 
             })
