@@ -67,7 +67,47 @@
         -->
 
     <script>
-        
+        // "가위" 버튼을 눌렀을때 어떻게 작동 해야 할지 한번 작성해보도록 합시다!
+        const winningStreak = document.querySelector('.winning-streak');
+        const comBoard = document.querySelector('.com > .board');
+        const boardContainer = document.querySelector('.board-container');
+        // const userBoards = document.querySelectorAll('.board-container > .board')
+
+        let 연승스택 = 0 ;
+
+        const table = ['가위','바위','보']
+
+        for(let i = 0 ; i < boardContainer.childElementCount; i ++ ){
+
+            
+            boardContainer.children[i].addEventListener('click', ()=> {
+                const user = i;
+                const computer = parseInt(Math.random()*3);
+
+                comBoard.innerText = table[computer]
+
+                if(user === computer) {
+                    winningStreak.innerText = '무승부'
+                    winningStreak.style.color = '#222'
+                }else if(user === 0 && computer === 2 || user === 1 && computer === 0 || user ===2 && computer === 1){
+                    연승스택++;
+                    winningStreak.style.color = 'blue'
+                    winningStreak.innerText = '승리'
+                }else {
+                    연승스택 = 0 ;
+                    winningStreak.style.color = 'red'
+                    winningStreak.innerText = '패배'
+                }
+                
+                if(연승스택 === 3) {
+                    winningStreak.innerText = '게임 클리어!'
+                }else {
+                    winningStreak.innerText =  winningStreak.innerText + ` ${연승스택}연승`
+                }
+
+            })
+        }
+
 
     </script>
 </body>
