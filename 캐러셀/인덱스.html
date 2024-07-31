@@ -11,7 +11,7 @@
         }
 
         .slider {
-            width: 300px;
+            width: 500px;
             height: 200px;
             overflow: hidden;
         }
@@ -22,7 +22,6 @@
         }
 
         .content {
-            width: 300px;
             height: 200px;
             background-color: pink;
 
@@ -42,6 +41,11 @@
             <li class="content">1</li>
             <li class="content">2</li>
             <li class="content">3</li>
+            <li class="content">3</li>
+            <li class="content">3</li>
+            <li class="content">3</li>
+            <li class="content">3</li>
+            <li class="content">3</li>
         </ul>
     </div>
     <div class="controls">
@@ -50,33 +54,42 @@
     </div>
 
     <script>
+        const viewCount = 5;
+        const gap = 4;
+        const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
+        const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
 
-        let 좌표 = 0 ;
+        const slideWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
+
+        let index = 0 ;
+
+        contentWrapper.style.gap = `${gap}px`
+
+        for(let i = 0 ; i < slideCount ; i ++) {
+            contentWrapper.children[i].style.width = `${slideWidth}px`
+        }
 
         prevButton.addEventListener('click',()=>{
-            좌표 += 300;
-
-            if(좌표 > 0) {
-                좌표 = 0;
+            index--;
+            if(index < 0 ) {
+                index = 0 ;
             }
-
-            // 컨텐츠 랩퍼를 -300px만큼 이동하게
-            contentWrapper.style.transform = `translateX(${좌표}px)`
+            applyIndexToSlider()
         })
         nextButton.addEventListener('click',()=>{
-            좌표 -= 300;
-            // 컨텐츠 랩퍼를 -300px만큼 이동하게
-
-            // 최소값은 -600이여야 함(3장 기준)
-            // -600에서 한번더 클릭하면 -900
-            if(좌표 < -600) {
-                좌표 = -600
+            index++
+            if(index > contentWrapper.childElementCount-1) {
+                index = contentWrapper.childElementCount-1;
             }
-            contentWrapper.style.transform = `translateX(${좌표}px)`
+            applyIndexToSlider()
         })
+
+        function applyIndexToSlider(){
+            contentWrapper.style.transform = `translateX(${index * -(slideWidth + gap)}px)`
+        }
     </script>
 </body>
 </html>
