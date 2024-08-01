@@ -20,6 +20,14 @@
         // setTimeout(실행될함수,타이머)
 
         const adButton = document.querySelector('.ad');
+        const pText = document.querySelector('p.text');
+
+        adButton.addEventListener('click', () => {
+            pText.innerText = '광고일까요?';
+            setTimeout(()=>{
+                pText.innerText = '광고입니다!';
+            },2000)
+        })
 
 
         // adButton.addEventListener('click',()=>{
