@@ -38,14 +38,14 @@
 <body>
     <div class="slider">
         <ul class="content-wrapper">
-            <li class="content">1</li>
+            <li class="content">1(처음)</li>
             <li class="content">2</li>
             <li class="content">3</li>
-            <li class="content">3</li>
-            <li class="content">3</li>
-            <li class="content">3</li>
-            <li class="content">3</li>
-            <li class="content">3</li>
+            <li class="content">4</li>
+            <li class="content">5</li>
+            <li class="content">6</li>
+            <li class="content">7</li>
+            <li class="content">8(끝)</li>
         </ul>
     </div>
     <div class="controls">
@@ -54,41 +54,41 @@
     </div>
 
     <script>
-        const viewCount = 5;
-        const gap = 4;
+        const viewCount = 1;
+        const gap = 0;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
         const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
 
-        const slideWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
+        const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
 
         let index = 0 ;
 
         contentWrapper.style.gap = `${gap}px`
 
         for(let i = 0 ; i < slideCount ; i ++) {
-            contentWrapper.children[i].style.width = `${slideWidth}px`
+            contentWrapper.children[i].style.width = `${contentWidth}px`
         }
 
         prevButton.addEventListener('click',()=>{
             index--;
             if(index < 0 ) {
-                index = 0 ;
+                index = contentWrapper.childElementCount-viewCount;
             }
             applyIndexToSlider()
         })
         nextButton.addEventListener('click',()=>{
-            index++
-            if(index > contentWrapper.childElementCount-1) {
-                index = contentWrapper.childElementCount-1;
+            index++;
+            if(index > contentWrapper.childElementCount-viewCount) {
+                index = 0 ;
             }
             applyIndexToSlider()
         })
 
         function applyIndexToSlider(){
-            contentWrapper.style.transform = `translateX(${index * -(slideWidth + gap)}px)`
+            contentWrapper.style.transform = `translateX(${index * -(contentWidth + gap)}px)`
         }
     </script>
 </body>

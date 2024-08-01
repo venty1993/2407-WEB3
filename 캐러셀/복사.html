@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            안녕하세요
+        </div>
+    </div>
+
+    <div class="other-side">
+        <div>기</div>
+        <div>존</div>
+        <div>요</div>
+        <div>소</div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const otherSide = document.querySelector('.other-side');
+  
+        for(let i = 0 ; i < 4 ; i ++) {
+            const cloneContainer = container.cloneNode(true);
+            cloneContainer.classList.add('clone')
+            otherSide.appendChild(cloneContainer);
+        }
+
+        const cloneContainerToFront = container.cloneNode(true);
+
+        otherSide.insertBefore(cloneContainerToFront, otherSide.children[0])
+
+
+
+        console.log(cloneContainer)
+    </script>
+</body>
+</html>
