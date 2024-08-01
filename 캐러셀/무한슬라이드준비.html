@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .content-wrapper {
+            display: flex;
+            transition: 0.5s;
+        }
+
+        .content {
+            height: 200px;
+            background-color: pink;
+
+            flex-shrink: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <ul class="content-wrapper">
+            <li class="content">1(처음)</li>
+            <li class="content">2</li>
+            <li class="content">3</li>
+            <li class="content">4</li>
+            <li class="content">5</li>
+            <li class="content">6</li>
+            <li class="content">7</li>
+            <li class="content">8(끝)</li>
+        </ul>
+    </div>
+    <div class="controls">
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+
+    <script>
+        const viewCount = 1;
+        const gap = 0;
+        const slider = document.querySelector('.slider')
+        const contentWrapper = document.querySelector('.content-wrapper');
+        const slideCount = contentWrapper.childElementCount;
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
+
+        const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
+        const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
+
+        contentWrapper.appendChild(cloneFirst);
+        contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+
+        let index = 0 ;
+
+        contentWrapper.style.gap = `${gap}px`
+
+        for(let i = 0 ; i < contentWrapper.childElementCount ; i ++) {
+            contentWrapper.children[i].style.width = `${contentWidth}px`
+        }
+
+        prevButton.addEventListener('click',()=>{
+            index--;
+            if(index < 0 ) {
+                index = contentWrapper.childElementCount-viewCount;
+            }
+            applyIndexToSlider()
+        })
+        nextButton.addEventListener('click',()=>{
+            index++;
+            if(index > contentWrapper.childElementCount-viewCount) {
+                index = 0 ;
+            }
+            applyIndexToSlider()
+        })
+
+        function applyIndexToSlider(){
+            contentWrapper.style.transform = `translateX(${index * -(contentWidth + gap)}px)`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="ad">광고</button>
+    <p class="text">조용..</p>
+
+    <!-- 
+    버튼을 누른 직후 p.text 안의 텍스트는 '광고일까요?'로 변경 되고
+    2초 뒤 p.text안의 텍스트가 '광고입니다!'로 다시 변경되도록 만들어주세요
+
+    버튼은 한번만 클릭했을때 위와같이 작동해야합니다.
+    -->
+
+    <script>
+        // setTimeout(실행될함수,타이머)
+
+        const adButton = document.querySelector('.ad');
+
+
+        // adButton.addEventListener('click',()=>{
+        //     setTimeout(광고예요, 1000)
+        // })
+
+
+        // function 광고예요(){
+        //     alert('광고예요');
+        // }
+
+
+        setTimeout(()=>{
+            alert('광고일걸요?')
+        },2000)
+
+
+    </script>
+</body>
+</html>
