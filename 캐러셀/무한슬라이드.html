@@ -61,16 +61,19 @@
         const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
+        const transitionTime = 300;
 
         const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
 
         const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
         const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
 
+
         contentWrapper.appendChild(cloneFirst);
         contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
 
         let index = 0 ;
+        let playAble = true;
 
         contentWrapper.style.gap = `${gap}px`
 
@@ -78,6 +81,8 @@
             contentWrapper.children[i].style.width = `${contentWidth}px`
         }
 
+
+        
         prevButton.addEventListener('click',()=>{
 
             index--;
@@ -86,24 +91,52 @@
             }
             applyIndexToSlider(true)
         })
+
         nextButton.addEventListener('click',()=>{
+            if(playAble){
+                playAble=false;
 
- 
-            index++;
-            applyIndexToSlider(true)
-
-
-
-            // 만약 마지막 슬라이드(복사본)에 도달 했다면
-            if(index > contentWrapper.childElementCount-viewCount-1) {
-                // transtion 지속시간만큼 시간이 흐른 뒤에
-                // transtion을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다
+                index++;
+                applyIndexToSlider(true)
+                
                 setTimeout(() => {
-                    index = viewCount
-                    applyIndexToSlider(false)
+                    playAble=true;
 
-                }, 500);
+                    if(index === contentWrapper.childElementCount-viewCount) {
+                        // transtion 지속시간만큼 시간이 흐른 뒤에
+                        // transtion을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다
+                        index = viewCount
+                        applyIndexToSlider(false) 
+                    }
+                }, transitionTime);
+                
+                // setTimeout(() => {
+                //     playAble=true;
+                //     console.log(playAble)
+                // }, transitionTime);
+
+                // // 만약 마지막 슬라이드(복사본)에 도달 했다면
+                // if(index === contentWrapper.childElementCount-viewCount) {
+                //     // transtion 지속시간만큼 시간이 흐른 뒤에
+                //     // transtion을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다
+                //     setTimeout(() => {
+                //         index = viewCount
+                //         applyIndexToSlider(false)
+
+                //     }, transitionTime);
+                // }
+                
+
+                // 만약 마지막 슬라이드(복사본)에 도달 했다면
+
             }
+
+           
+
+            // 무한슬라이드에서 애니메이션 중복작동 처리를 해주지 않으면
+            // 슬라이드가 인덱스 밖으로 뛰쳐 나가는 문제가 발생합니다
+            // 플레이 상태를 담는 변수, if문, setTimeout을 이용해 처리 가능합니다.
+            // 
 
 
 
@@ -112,7 +145,7 @@
 
         function applyIndexToSlider(animation){
             if(animation) {
-                contentWrapper.style.transition = `0.5s`
+                contentWrapper.style.transition = `${transitionTime}ms`
             }else {
                 contentWrapper.style.transition = `none`
             }
