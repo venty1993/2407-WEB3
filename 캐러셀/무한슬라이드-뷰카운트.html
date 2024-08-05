@@ -73,6 +73,8 @@
         // 복사하는 부분과 끼워넣는 부분을 별도로 분리해서(for문 2개 이상 쓰라는 이야기)
         // 복사본을 적절한 위치에 잘 넣어보도록 합시다.
 
+        // 퍼스트, 라스트 말고 개체.children[index]
+
         const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
         const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
 
