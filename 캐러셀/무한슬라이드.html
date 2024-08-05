@@ -84,13 +84,25 @@
 
         
         prevButton.addEventListener('click',()=>{
+            if(playAble){
+                playAble=false;
 
-            index--;
-            if(index < 1 ) {
-                index = contentWrapper.childElementCount-viewCount-1;
-            }
-            applyIndexToSlider(true)
-        })
+                index--;
+                applyIndexToSlider(true)
+
+                setTimeout(() => {
+                    playAble=true;
+
+                    if(index === viewCount - 1) {
+                        // transtion 지속시간만큼 시간이 흐른 뒤에
+                        // transtion을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다
+                        index = contentWrapper.childElementCount - viewCount - 1
+                        applyIndexToSlider(false) 
+                    }
+                }, transitionTime);
+
+        }})
+        
 
         nextButton.addEventListener('click',()=>{
             if(playAble){
@@ -98,7 +110,7 @@
 
                 index++;
                 applyIndexToSlider(true)
-                
+
                 setTimeout(() => {
                     playAble=true;
 
