@@ -65,6 +65,14 @@
 
         const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
 
+        // 현재 뷰카운트가 달라지면 오작동하는 이슈가 있습니다.
+        // 이는 뷰카운트 갯수만큼 클론을 만들어야 하는데
+        // 기존의 작성은 viewCount가 1인 경우에만 올바르게 작동 되는 상황입니다.
+        // 반복문을 이용해 viewCount의 갯수 만큼 clone을 만들어주면 해결 될 것 같은데,
+        // 반복문을 한번만 쓰게되면 1 2 3 4 5 -> [1] [5] 1 2 3 4 5 [1] [5] 이런식으로 될것입니다.
+        // 복사하는 부분과 끼워넣는 부분을 별도로 분리해서(for문 2개 이상 쓰라는 이야기)
+        // 복사본을 적절한 위치에 잘 넣어보도록 합시다.
+
         const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
         const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
 
