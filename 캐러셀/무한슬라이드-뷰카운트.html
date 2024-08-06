@@ -10,6 +10,11 @@
             padding: 0;
         }
 
+        .slider-container {
+            position: relative;
+            width: fit-content;
+        }
+
         .slider {
             width: 500px;
             height: 200px;
@@ -33,24 +38,74 @@
             font-weight: bold;
             font-size: 24px;
         }
+        .controls {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+
+        .controls > .buttons {
+            display: flex;
+            gap: 8px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(100% + 8px);
+
+        }
+
+        .radio-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: gray;
+        }
+
+        .radio-button.active {
+            background-color: pink;
+        }
+
+        .prev {
+            position: absolute;
+            left: 4px;
+            bottom: 4px;
+        }
+
+        .next {
+            position: absolute;
+            right: 4px;
+            bottom: 4px;
+        }
+
+        
     </style>
 </head>
 <body>
-    <div class="slider">
-        <ul class="content-wrapper">
-            <li class="content">1(처음)</li>
-            <li class="content">2</li>
-            <li class="content">3</li>
-            <li class="content">4</li>
-            <li class="content">5</li>
-            <li class="content">6</li>
-            <li class="content">7</li>
-            <li class="content">8(끝)</li>
-        </ul>
-    </div>
-    <div class="controls">
-        <button class="prev">이전</button>
-        <button class="next">다음</button>
+    <div class="slider-container">
+
+        <div class="slider">
+            <ul class="content-wrapper">
+                <li class="content">1(처음)</li>
+                <li class="content">2</li>
+                <li class="content">3</li>
+                <li class="content">4</li>
+                <li class="content">5</li>
+                <li class="content">6</li>
+                <li class="content">7</li>
+                <li class="content">8(끝)</li>
+            </ul>
+        </div>
+        <div class="controls">
+            <button class="prev">이전</button>
+            <button class="next">다음</button>
+            <div class="buttons">
+                <div class="radio-button active"></div>
+                <div class="radio-button"></div>
+                <div class="radio-button"></div>
+                <div class="radio-button"></div>
+            </div>
+        </div>
     </div>
 
     <script>
