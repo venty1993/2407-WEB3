@@ -54,7 +54,7 @@
     </div>
 
     <script>
-        const viewCount = 1;
+        const viewCount = 5;
         const gap = 0;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
@@ -75,12 +75,23 @@
 
         // 퍼스트, 라스트 말고 개체.children[index]
 
-        const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
-        const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
+        const cloneFirst = [];
+        const cloneLast = [];
 
+        for(let i = 0 ; i < viewCount ; i ++) {
+            cloneFirst.push(contentWrapper.children[i].cloneNode(true))
+            cloneLast.push(contentWrapper.children[contentWrapper.childElementCount - 1 - i].cloneNode(true))
+        }
 
-        contentWrapper.appendChild(cloneFirst);
-        contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+        for(let i = 0 ; i < viewCount ; i ++) {
+            contentWrapper.appendChild(cloneFirst[i])
+            contentWrapper.insertBefore(cloneLast[i], contentWrapper.firstElementChild)
+        }
+
+        // for(let i = 0 ; i < ??? ; ++) {
+        //     contentWrapper.appendChild(cloneFirst);
+        //     contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
+        // }
 
         let index = viewCount ;
         let playAble = true;
