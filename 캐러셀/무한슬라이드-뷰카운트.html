@@ -60,6 +60,7 @@
             height: 12px;
             border-radius: 50%;
             background-color: gray;
+            cursor: pointer;
         }
 
         .radio-button.active {
@@ -100,22 +101,26 @@
             <button class="prev">이전</button>
             <button class="next">다음</button>
             <div class="buttons">
-                <div class="radio-button active"></div>
+                <!-- <div class="radio-button"></div>
                 <div class="radio-button"></div>
                 <div class="radio-button"></div>
                 <div class="radio-button"></div>
+                <div class="radio-button"></div>
+                <div class="radio-button"></div>
+                <div class="radio-button"></div> -->
             </div>
         </div>
     </div>
 
     <script>
-        const viewCount = 5;
+        const viewCount = 2;
         const gap = 0;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
         const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
+        const radioButtonContainer = document.querySelector('.buttons');
         const transitionTime = 300;
 
         const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
@@ -129,6 +134,19 @@
         // 복사본을 적절한 위치에 잘 넣어보도록 합시다.
 
         // 퍼스트, 라스트 말고 개체.children[index]
+
+        for(let i = 0 ; i < slideCount ; i ++ ){
+            const button = document.createElement('div');
+            button.classList.add('radio-button');
+            button.addEventListener('click',()=>{
+                index = viewCount + i;
+                applyIndexToSlider(true)
+            })
+
+            radioButtonContainer.appendChild(button);
+        }
+
+        radioButtonContainer.children[0].classList.add('active');
 
         const cloneFirst = [];
         const cloneLast = [];
@@ -241,6 +259,22 @@
             }
             
             contentWrapper.style.transform = `translateX(${index * -(contentWidth + gap)}px)`
+
+            resetButtons();
+            if(viewCount-1 === index){
+                radioButtonContainer.lastElementChild.classList.add('active');
+            }else if(slideCount + viewCount === index) {
+                radioButtonContainer.firstElementChild.classList.add('active');
+            }else {
+                radioButtonContainer.children[index-viewCount].classList.add('active');
+            }
+
+        }
+
+        function resetButtons() {
+            for(let i = 0 ; i < radioButtonContainer.childElementCount ; i ++) {
+                radioButtonContainer.children[i].classList.remove('active');
+            }
         }
     </script>
 </body>
