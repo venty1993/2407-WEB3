@@ -110,19 +110,20 @@
 
         const sliderContainer = document.querySelector('.slider-container')
 
+        // div.slider
         const slider = document.createElement('div');
         slider.classList.add('slider');
 
+        // div.contents-wrapper
         const contentsWrapper = document.createElement('div');
         contentsWrapper.classList.add('content-wrapper');
 
+        // 1안. 실시간으로 1개씩 옮기다가 갯수가 0개가 되면 멈춘다.
         while(sliderContainer.childElementCount !== 0) {
             contentsWrapper.appendChild(sliderContainer.firstElementChild)
         }
-
-        sliderContainer.appendChild(slider)
-        slider.appendChild(contentsWrapper);
-
+        
+        // 2안. 먼저 배열에 개체를 넣어놓고 나중에 옮기는 방법
         // const arr = [];
 
         // for(let i = 0 ; i < sliderContainer.childElementCount ; i++){
@@ -132,6 +133,13 @@
         // for(let i = 0 ; i < arr.length ; i ++) {
         //     contentsWrapper.appendChild(arr[i]);
         // }
+
+
+        sliderContainer.appendChild(slider)
+        slider.appendChild(contentsWrapper);
+        // 아래와 같은 모양이 된다.
+            // div.slider-container > div.sllider > div.contents-wrapper
+
 
         
 
