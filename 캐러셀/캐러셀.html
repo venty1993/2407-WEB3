@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider-container {
+            position: relative;
+            width: fit-content;
+        }
+
+        .slider {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .content-wrapper {
+            display: flex;
+            transition: 0.5s;
+        }
+
+        .content {
+            height: 200px;
+            background-color: pink;
+
+            flex-shrink: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .controls {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+
+        .controls > .buttons {
+            display: flex;
+            gap: 8px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: calc(100% + 8px);
+
+        }
+
+        .radio-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: gray;
+            cursor: pointer;
+        }
+
+        .radio-button.active {
+            background-color: pink;
+        }
+
+        .prev {
+            position: absolute;
+            left: 4px;
+            bottom: 4px;
+        }
+
+        .next {
+            position: absolute;
+            right: 4px;
+            bottom: 4px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+
+        <!-- <div class="slider"> -->
+            <!-- <ul class="content-wrapper"> -->
+                <div class="content">1(처음)</div>
+                <div class="content">2</div>
+                <div class="content">3</div>
+                <div class="content">4</div>
+                <div class="content">5</div>
+                <div class="content">6</div>
+                <div class="content">7</div>
+                <div class="content">8(끝)</div>
+            <!-- </ul> -->
+        <!-- </div> -->
+        <!-- <div class="controls">
+            <button class="prev">이전</button>
+            <button class="next">다음</button>
+            <div class="buttons">
+            </div>
+        </div> -->
+    </div>
+
+    <script>
+
+
+        const sliderContainer = document.querySelector('.slider-container')
+
+        const slider = document.createElement('div');
+        slider.classList.add('slider');
+
+        const contentsWrapper = document.createElement('div');
+        contentsWrapper.classList.add('content-wrapper');
+
+        while(sliderContainer.childElementCount !== 0) {
+            contentsWrapper.appendChild(sliderContainer.firstElementChild)
+        }
+
+        sliderContainer.appendChild(slider)
+        slider.appendChild(contentsWrapper);
+
+        // const arr = [];
+
+        // for(let i = 0 ; i < sliderContainer.childElementCount ; i++){
+        //     arr.push(sliderContainer.children[i])
+        // }
+
+        // for(let i = 0 ; i < arr.length ; i ++) {
+        //     contentsWrapper.appendChild(arr[i]);
+        // }
+
+        
+
+
+    </script>
+</body>
+</html>
