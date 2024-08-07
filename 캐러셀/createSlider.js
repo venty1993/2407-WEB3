@@ -113,9 +113,10 @@ function createSlider(target, viewCount, gap, transitionTime, autoPlay){
 
     let index = viewCount ;
     let playAble = true;
+    let autoPlayInterval;
 
     applyIndexToSlider(false);
-
+    
     contentsWrapper.style.gap = `${gap}px`
 
     for(let i = 0 ; i < contentsWrapper.childElementCount ; i ++) {
@@ -123,7 +124,7 @@ function createSlider(target, viewCount, gap, transitionTime, autoPlay){
     }
 
 
-    
+    nextButton.addEventListener('click', next);
     prevButton.addEventListener('click',()=>{
         if(playAble){
             playAble=false;
@@ -144,17 +145,8 @@ function createSlider(target, viewCount, gap, transitionTime, autoPlay){
 
     }})
 
-
     
-    if(autoPlay) {
-        setInterval(() => {
-            next();
-        }, 5000);
-    }
-
-
-    nextButton.addEventListener('click', next)
-
+    
 
 
     function next(){
@@ -215,6 +207,13 @@ function createSlider(target, viewCount, gap, transitionTime, autoPlay){
             buttons.children[index-viewCount].classList.add('sbs-active');
         }
 
+        if(autoPlay) {
+            clearInterval(autoPlayInterval);
+            
+            autoPlayInterval = setInterval(() => {
+                next();
+            }, 5000);
+        }
     }
 
     function resetButtons() {
