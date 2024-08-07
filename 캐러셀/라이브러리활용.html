@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="createSlider.css">
+    <script src="createSlider.js"></script>
+    <style>
+        .my-slider {
+            width: 600px;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div class="my-slider">
+        <div class="contents">1</div>
+        <div class="contents">2</div>
+        <div class="contents">3</div>
+        <div class="contents">4</div>
+        <div class="contents">5</div>
+        <div class="contents">6</div>
+        <div class="contents">7</div>
+        <div class="contents">8</div>
+    </div>
+
+    
+    <script>
+        const mySlider = document.querySelector('.my-slider');
+
+        createSlider(mySlider, 3, 16, 300, true)
+    </script>
+</body>
+</html>
