@@ -68,7 +68,7 @@ function createSlider(target, viewCount, gap, transitionTime, autoPlay){
 
     
 
-    const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
+    
 
     // 현재 뷰카운트가 달라지면 오작동하는 이슈가 있습니다.
     // 이는 뷰카운트 갯수만큼 클론을 만들어야 하는데
@@ -114,15 +114,26 @@ function createSlider(target, viewCount, gap, transitionTime, autoPlay){
     let index = viewCount ;
     let playAble = true;
     let autoPlayInterval;
+    let contentWidth;
 
-    applyIndexToSlider(false);
+    
     
     contentsWrapper.style.gap = `${gap}px`
+    
+    window.addEventListener('resize',calcSlideWidth)
+    
+    calcSlideWidth();
+    applyIndexToSlider(false);
 
-    for(let i = 0 ; i < contentsWrapper.childElementCount ; i ++) {
-        contentsWrapper.children[i].style.width = `${contentWidth}px`
+
+    function calcSlideWidth(){
+        contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount;
+    
+        for(let i = 0 ; i < contentsWrapper.childElementCount ; i ++) {
+            contentsWrapper.children[i].style.width = `${contentWidth}px`
+        }
+        applyIndexToSlider(false);
     }
-
 
     nextButton.addEventListener('click', next);
     prevButton.addEventListener('click',()=>{
