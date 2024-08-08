@@ -125,7 +125,6 @@ function createSlider(target, viewCount, gap, transitionTime, autoPlay){
     calcSlideWidth();
     applyIndexToSlider(false);
 
-
     function calcSlideWidth(){
         contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount;
     
